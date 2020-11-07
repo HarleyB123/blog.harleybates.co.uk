@@ -197,6 +197,6 @@ def post_to_log_aggregator(body, log_type):
     post_data(customer_id, shared_key, body, log_type)
 ```
 
-And thats it! For simplicity and resuability over more resource types - I decided to make each one of these code snippets a seperate file. The first code snippet is called main.py, the second webapps.py and the final code snippet is called aggregation.py
+And thats it! For simplicity and reusability over more resource types - I decided to make each one of these code snippets a seperate file. The first code snippet is called main.py, the second webapps.py and the final code snippet is called aggregation.py
 
 You can see the code [here](https://github.com/HarleyB123/AzureWebAppReporting) for the end solution all pieced together!
