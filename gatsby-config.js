@@ -5,8 +5,8 @@ module.exports = {
       name: `Harley Bates`,
       summary: `who lives for the automation and loves all things DevOps.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `A blog on all things DevOps and Automation`,
+    siteUrl: `https://blog.harleybates.co.uk`,
     social: {
       linkedin: `harleybates`,
     },
