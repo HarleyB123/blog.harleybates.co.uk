@@ -50,7 +50,7 @@ In the end, I was able to create two data sources in Terraform, a list of maps o
 
 This was a fun task and I learned loads through completing it! In the future, I want to make my own API and try my hand at creating resource blocks for Terraform - stay tuned for that!
 
-I also want to try a recommender for the current Terraform example using the Levenshtein distance between the user input and values in the JSON response, so that if a user was to pass through a country name of "Brasil" the Terraform would fail to apply but provide a useful message, such as:
+I also want to try a recommender for the current Terraform example using the Levenshtein distance between the user input and values in the JSON response, so that if a user were to pass through a country name of "Brasil" the Terraform would fail to apply but provide a useful message, such as:
 
 ```
 Country 'Brasil' was not valid. Did you mean Brazil?
