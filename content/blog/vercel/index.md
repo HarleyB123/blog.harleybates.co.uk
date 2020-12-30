@@ -12,7 +12,7 @@ Let's go to the first cool part of Vercel - CI/CD in the platform. For Gatsby (w
 
 ![PR Template](pr.png)
 
-Note that in order to set-up this pipeline this is all I did:
+Note that in order to setup this pipeline this is all I did:
 
 - Signed up to Vercel using my Github account
 - Said I wanted to use Gatsby (it does allow you to change things like the build command and output directory)
@@ -28,7 +28,11 @@ You can also view any serverless function logs and the source code (your source 
 
 Speaking of integrations, you can also connect your favourite (well probably not at this time, but in the future!) plugins such as Slack, Formspree and Datadog to your deployments. I'll admit, this section of Vercel is sparce at the moment, but I see this becoming a great place to attach plugins and act as a one-stop shop for your entire JAMstack site.
 
-On your main site overview, you can easily see your production deployment, as well as preview deployments (PR's). A previous history of these deployments is also available, as expected. What isn't though, is the analytics collected around the performance of your production website. In order to get this sort of information around your site usually, you'd have to setup a monitoring suite and extract these insights. Vercel collects the ```Real Experience Score```. This is something Vercel says they calculate using real data collected by users. This will then give you a score from 0-100 and then tell you how much better you are than the rest of the web. The score is a weighted average based some Web Vitals - which you can read mmore about [here](https://vercel.com/docs/analytics#web-vitals). You score can also be shown on a graph, where you can see how deployments have affected your overall sites quality. In short, it's a really nifty data collection tool (when you get enough traffic to the site to generate these metrics 😢).
+On your main site overview, you can easily see your production deployment, as well as preview deployments (PR's). A previous history of these deployments is also available, as expected. 
+
+What isn't though, is the analytics collected around the performance of your production website. In order to get this sort of information around your site usually, you'd have to setup a monitoring suite and extract these insights, but not anymore! 
+
+Vercel collects the ```Real Experience Score```. This is something Vercel says they calculate using real data collected by users. This will then give you a score from 0-100 and then tell you how much better you are than the rest of the web. The score is a weighted average based some Web Vitals - which you can read more about [here](https://vercel.com/docs/analytics#web-vitals). You score can also be shown on a graph, where you can see how deployments have affected your overall sites quality. In short, it's a really nifty data collection tool (when you get enough traffic to the site to generate these metrics 😢).
 
 ## How does it compare to the rivals?
 
@@ -52,7 +56,7 @@ I am amazed at how good that is, you only need to checkout the Cloudflare pages 
 
 ## How easy was it to migrate from AWS?
 
-Whilst all of this looked really cool - I was worried about how difficult it would be to transfer stuff over and use Vercel to host my site, rather than my own S3/Cloudfront. At this point I should point out that technically I have sacrificed the service SLA (the enterprise feature gives you 99.99% SLA, which still isn't as good as S3) - but if I'm honest for a blog site I don't really care. The development features I am provided with outweigh this.
+Whilst all of this looked really cool - I was worried about how difficult it would be to transfer stuff over and use Vercel to host my site, rather than my own S3/Cloudfront. At this point I should point out that technically I have sacrificed the service SLA (the enterprise feature gives you 99.99% SLA, which still isn't as good as S3) - but if I'm honest for a blog site I don't really care. The development features I am provided with outweigh this drawback.
 
 In order to get the site up, all I had to do was either add or transfer my domain to the Vercel site. I chose to add the domain, which meant removing the old A record that pointed to my Cloudfront distribution and instead create a CNAME in Route53. That was it.
 
