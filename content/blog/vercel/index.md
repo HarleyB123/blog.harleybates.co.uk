@@ -8,57 +8,53 @@ Vercel is a company that have created tools and solutions that are used by AirBn
 
 ## So what does Vercel actually do?
 
+Let's go to the first cool part of Vercel - CI/CD in the platform. For Gatsby (what this site uses), a CI/CD pipeline using Github actions is nothing special. Neither is reviewing the site before it's live - ```gatsby develop``` can do that for me locally. Vercel really shines here though - as I demonstrate with a PR:
 
+![PR Template](pr.png)
 
-After taking annual leave so that I could do all the fun techy things that I never got round to doing (such as this blog!) - I decided that making a Terraform Provider would be interesting. I then came across this [blog](https://medium.com/spaceapetech/creating-a-terraform-provider-part-1-ed12884e06d7), that describes the Terraform SDK and all the features of it exceptionally well. It also provides a walkthrough for a resource block for a custom-made API. I would highly recommend checking this out! Without reading this blog, I would've struggled to understand what values like ```*schema.Resource``` or ```diag.Diagnostics``` mean.
+Note that in order to set-up this pipeline this is all I did:
 
-Armed with this information, I decided I had two options. I could either create a Terraform resource provider for a given API (that I must be able to have some control of, such as Jira or a custom-made API), or to make a data provider for an API (which I don't have to own). As I am new to both Terraform provider development and Go, I decided that the latter would be easier and focus on what I really wanted to learn.
+- Signed up to Vercel using my Github account
+- Said I wanted to use Gatsby (it does allow you to change things like the build command and output directory)
+- Selected the repo where this blog is hosted
 
-I then came across [this](https://github.com/circa10a/terraform-provider-mcbroken), a Terraform Provider for McBroken. McBroken is an API that returns numerous US states and the percentage of broken Ice Cream machines in that state. Whilst this Provider has very few use cases in the real world, it provided perfect scaffolding for me to try my hand at making my own provider.
+and that was it!
 
-## They've come late to the party, how easy is it to catch-up?
+The PR gives me a link to the deployment (Vercel can store secrets/environment variables on it's end - much like any other CI/CD service) and then a preview website. For me, running Gatsby locally is *probably* faster, but for teams working on a site I'm sure this is pretty valuable. Also - the portal has such a clean UI:
 
-I wanted to choose an API that forced me to change the Go files, so that I could actually learn something!
+![Vercel Portal](portal.png)
 
-The McBroken API returns (shortened):
+You can also view any serverless function logs and the source code (your source code is stored in the portal, I sense some people/companies won't be too keen on this feature, given that Vercel is a third-party).
 
-```
-{"cities": [{"city": "New York", "broken": 23.91}], "broken": 10.61}
-```
+Speaking of integrations, you can also connect your favourite (well probably not at this time, but in the future!) plugins such as Slack, Formspree and Datadog to your deployments. I'll admit, this section of Vercel is sparce at the moment, but I see this becoming a great place to attach plugins and act as a one-stop shop for your entire JAMstack site.
 
-I then found a COVID stats API, which returned data in this format:
+On your main site overview, you can easily see your production deployment, as well as preview deployments (PR's). A previous history of these deployments is also available, as expected. What isn't though, is the analytics collected around the performance of your production website. In order to get this sort of information around your site usually, you'd have to setup a monitoring suite and extract these insights. Vercel collects the ```Real Experience Score```. This is something Vercel says they calculate using real data collected by users. This will then give you a score from 0-100 and then tell you how much better you are than the rest of the web. The score is a weighted average based some Web Vitals - which you can read mmore about [here](https://vercel.com/docs/analytics#web-vitals). You score can also be shown on a graph, where you can see how deployments have affected your overall sites quality. In short, it's a really nifty data collection tool (when you get enough traffic to the site to generate these metrics 😢).
 
-```
-[{"country":"World","cases":51998148}, {"country":"India","cases":8647622}]
-```
+## How does it compare to the rivals?
 
-Subtle differences (and you could argue I chose an easier API), but a list response meant I had to think about the code and understand it in order to make it work. 
+If you follow JAMstack sites to any extent, you'll know that the options to host them are seemingly endless. Netlify, Cloudflare pages, Github pages, Firebase, AWS Amplify (or S3/Cloudfront), the list goes on. Vercel are certainly up against some strong solutions. However, Vercel does offer exactly the same as Netlify and Cloudflare pages in terms of functionality. Comparing the pros and cons of each hosting solution is something that I'm certain many people have done before - so I will stick to the stuff Vercel does (in my opinion) better than Netlify and Cloudflare pages. 
 
-## It's rivals (and how it differs itself)
+The fact that I am able to deploy whatever project I want on the same platform in a near-identical way is incredible. Whether it's React, Vue, Hugo, Next.js or Docusaurus - getting setup on Vercel appears to be quite simple.
 
-Given this was my first real project in Go, I came across many issues and cool parts of the go language:
+The analytics service I spoke about earlier. To collect all that data for me and provide the level of insight that it does is really cool and a feature that it doesn't look like Netlify or Cloudflare pages offer *for free*.
 
-* How do I even get the packages I need? ```go get github.com/hashicorp/terraform-plugin-sdk/v2/diag``` didn't work. What's the equivalent of a requirements.txt file and pip in go? What is a $GOPATH and why can't I run my code from anywhere on my machine? 
-* What is a rune!? Why can't I iterate over my output? What is unmarshalling data? (Good answer to both questions [here](https://stackoverflow.com/questions/19310700/what-is-a-rune/47082770) and [here](https://stackoverflow.com/a/7255227))
-* Oh, that's cool. If I'm not using a package or not using a variable after declaration then the program fails 
+This leads me on to the final thing I love about Vercel - their free (they call it 'Hobby') tier. For *free* (I can not highlight this enough) you get:
 
-## The result
+- HTTPS-enabled Custom Domains
+- Continuous Deployment with Git
+- High-performance Edge Network
+- **Unlimited Websites & APIs**
+- Serverless Functions in Node.js, Go, and more
+- The analytics service (can only see performance for the last day though)
+- Use of the [Vercel CLI](https://vercel.com/docs/cli#introduction/vercel-cli-reference) 
 
-In the end, I was able to create two data sources in Terraform, a list of maps of all the countries and the amount of coronavirus cases, and another for the amount of coronavirus cases in a given country. As you can imagine, there was great joy when I saw this:
+I am amazed at how good that is, you only need to checkout the Cloudflare pages beta site or Netlify's pricing to see how good of a deal this is.
 
-![Terraform Apply](./terraformapply.png)
+## How easy was it to migrate from AWS?
 
-## Future Ideas
+Whilst all of this looked really cool - I was worried about how difficult it would be to transfer stuff over and use Vercel to host my site, rather than my own S3/Cloudfront. At this point I should point out that technically I have sacrificed the service SLA (the enterprise feature gives you 99.99% SLA, which still isn't as good as S3) - but if I'm honest for a blog site I don't really care. The development features I am provided with outweigh this.
 
-This was a fun task and I learned loads through completing it! In the future, I want to make my own API and try my hand at creating resource blocks for Terraform - stay tuned for that!
+In order to get the site up, all I had to do was either add or transfer my domain to the Vercel site. I chose to add the domain, which meant removing the old A record that pointed to my Cloudfront distribution and instead create a CNAME in Route53. That was it.
 
-I also want to try a recommender for the current Terraform example using the Levenshtein distance between the user input and values in the JSON response, so that if a user were to pass through a country name of "Brasil" the Terraform would fail to apply but provide a useful message, such as:
+Like the rivals, Vercel gives you HTTPS via LetsEncrypt. You can add your own custom certificates to the site if you wish (I am only just noticing these features now whilst I check what I am writing to be true - the offering truly is incredible!).
 
-```
-Country 'Brasil' was not valid. Did you mean Brazil?
-``` 
-
-A simpler improvement of the code would be to ignore the first line of the JSON response (the world cases) and make that a separate data source, rather than residing in the ```covid_world``` data source.
-
-
-To see the code for all of this, as well as examples - you can check it out [here](https://github.com/HarleyB123/terraform-provider-covid)
