@@ -1,6 +1,6 @@
 ---
 title: ClamAV API in Azure
-date: "2020-01-06T08:35:00.000Z"
+date: "2021-01-06T08:35:00.000Z"
 description: "Read on to find out how to deploy ClamAV as an API onto an Azure Web App"
 ---
 
