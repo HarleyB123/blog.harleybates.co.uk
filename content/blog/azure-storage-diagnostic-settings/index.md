@@ -59,7 +59,7 @@ to then apply diagnostic settings at the blob level:
    
    log {
     category = "StorageRead"
-    enabled  = True
+    enabled  = true
 
     retention_policy {
       enabled = false
@@ -68,7 +68,7 @@ to then apply diagnostic settings at the blob level:
    
    log {
     category = "StorageWrite"
-    enabled  = True
+    enabled  = true
 
     retention_policy {
       enabled = false
@@ -77,7 +77,7 @@ to then apply diagnostic settings at the blob level:
    
    log {
     category = "StorageDelete"
-    enabled  = True
+    enabled  = true
 
     retention_policy {
       enabled = false
