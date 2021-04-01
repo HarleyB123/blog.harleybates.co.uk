@@ -4,7 +4,7 @@ date: "2021-04-01T08:33:00.000Z"
 description: "Enable Azure Diagnostic Settings for Storage Accounts everywhere at the Blob, File, Queue, Table and Account level!"
 ---
 
-Azure have recently announced a new way to enable [diagnostic settings for storage accounts](https://docs.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). For anyone that has used the Classic version of diagnostic settings (where you are given a ```$logs``` file) - you'll share the same fear as me in that finding what you want from the logs is tricky at the best of times.
+Azure have recently announced a new way to enable [diagnostic settings for storage accounts](https://docs.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). For anyone that has used the Classic version of diagnostic settings (where you are given a ```$logs``` folder inside the storage account) - you'll share the same fear as me in that finding what you want from the logs is tricky at the best of times.
 
 Using Azures Kusto Query Language in Log analytics, it is much easier to extract the insights that you need from the logs. 
 
