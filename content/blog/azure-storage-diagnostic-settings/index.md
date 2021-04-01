@@ -93,7 +93,7 @@ Those with advanced experience in Terraform may see an opportunity to use for-ea
 
 ## Python
 
-Older projects may not have the ability to manage all of their infrastructure through code, so [here](https://github.com/HarleyB123/azure-storage-diagnostic-settings) is a python script that will enable the diagnostic settings at queue, blob, file and table level across all of your storage accounts. A service principal with the permissions to add diagnostic settings to storage accounts (as well as Read across the whole tenant) will be needed to run this script.
+Older projects may not have the ability to manage all of their infrastructure through code, so [here](https://github.com/HarleyB123/azure-storage-diagnostic-settings) is a python script that will enable the diagnostic settings at queue, blob, file and table level across all of your storage accounts. A service principal with the permissions to add diagnostic settings to storage accounts (as well as Read Permissions across the whole tenant) will be needed to run this script.
 
 ## Queries to run
 
