@@ -1,5 +1,5 @@
 ---
-title: Deploying Azure Diagnostic Settings for Storage Everywhere
+title: Applying Azure Diagnostic Settings for Storage Everywhere
 date: "2021-04-01T08:33:00.000Z"
 description: "Enable Azure Diagnostic Settings for Storage Accounts everywhere at the Blob, File, Queue, Table and Account level!"
 ---
