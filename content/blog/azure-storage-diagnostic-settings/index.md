@@ -6,7 +6,7 @@ description: "Enable Azure Diagnostic Settings for Storage Accounts everywhere a
 
 Azure have recently announced a new way to enable [diagnostic settings for storage accounts](https://docs.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). For anyone that has used the Classic version of diagnostic settings (where you are given a ```$logs``` folder inside the storage account) - you'll share the same fear as me in that finding what you want from the logs is tricky at the best of times.
 
-Using Azures Kusto Query Language in Log analytics, it is much easier to extract the insights that you need from the logs. 
+Using Azure's Kusto Query Language in Log Analytics, it is much easier to extract the insights that you need from the logs. 
 
 ## Enabling at each level
 
@@ -22,7 +22,7 @@ When you click onto blob to create a diagnostic setting, the tree path at the to
 
 ![Blob Tree View](./blobtree.png)
 
-Like me, you may assume that this means that in order to create a blob, queue, table or file level diagnostic setting I need to pass through the resource id + /<blob, file, table, queue>. This is not the case, and I will show you how to do enable them at these levels later in the blog. 
+Like me, you may assume that this means that in order to create a blob, queue, table or file level diagnostic setting I just need to pass through the ```resource id + /<blob, file, table, queue>```. This is not the case, and I will show you how to do enable them at these levels later in the blog. 
 
 ## Terraform Support?
 
