@@ -1,7 +1,7 @@
 ---
 title: Deploying Azure Diagnostic Settings for Storage Everywhere
 date: "2021-04-01T08:33:00.000Z"
-description: "Enable Azure Diagnostic Settings for Storage Accounts everywhere at the Blob, File, Queue, Table and Account level!
+description: "Enable Azure Diagnostic Settings for Storage Accounts everywhere at the Blob, File, Queue, Table and Account level!"
 ---
 
 Azure have recently announced a new way to enable [diagnostic settings for storage accounts](https://docs.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). For anyone that has used the Classic version of diagnostic settings (where you are given a ```$logs``` file) - you'll share the same fear as me in that finding what you want from the logs is tricky at the best of times.
