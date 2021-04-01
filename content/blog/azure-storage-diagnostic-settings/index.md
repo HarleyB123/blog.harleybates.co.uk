@@ -22,7 +22,12 @@ When you click onto blob to create a diagnostic setting, the tree path at the to
 
 ![Blob Tree View](./blobtree.png)
 
-Like me, you may assume that this means that in order to create a blob, queue, table or file level diagnostic setting I just need to pass through the ```resource id + /<blob, file, table, queue>```. This is not the case, and I will show you how to do enable them at these levels later in the blog. 
+Like me, you may assume that this means that in order to create a blob, queue, table or file level diagnostic setting I just need to pass through the ```resource id + /<blob, file, table, queue>```. This is not the case, and the correct way to pass the extension is:
+
+/blobServices/default
+/queueServices/default
+/tableServices/default
+/fileServices/default
 
 ## Terraform Support?
 
