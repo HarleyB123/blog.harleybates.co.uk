@@ -43,13 +43,13 @@ When I first looked at the repo, This was the JSON (Truncated):
   ]
 }
 ```
-Having rarely used Packer before, I saw that the error was probably relating to the ```user``` in the variables and that maybe it shouldn't/is not allowed to be there. I search around and see that we want to export an environment variable (AZURE\_CLIENT\_ID) and set it to client\_id. This is what [env](https://www.packer.io/docs/templates/hcl_templates/functions/contextual/env) does! So I replaced ```user``` with ```env``` and got a new error:
+Having rarely used Packer before, I saw that the error was probably relating to the ```user``` in the variables and that maybe it shouldn't/is not allowed to be there. I searched around and see that we want to export an environment variable (AZURE\_CLIENT\_ID) and set it to client\_id. This is what [env](https://www.packer.io/docs/templates/hcl_templates/functions/contextual/env) does! So I replaced ```user``` with ```env``` and got a new error:
 
 ```
 {"error":"unauthorized_client","error_description":"AADSTS700016: Application with identifier 'AZURE_CLIENT_ID' was not found in the directory '***'}
 ```
 
-My initial thoughts were "Ahhh I've seen something like this before, it must be the service principal permissions right? I checked the subscription and sure enough, the principal was there with the permissions it needed. Some more digging online revealed [this blog](https://compositecode.blog/2019/08/06/error-build-azure-arm-errored-adal-failed-to-execute-the-refresh-request-error/), which notes perfectly the issue:
+My initial thoughts were "Ahhh I've seen something like this before, it must be the service principal permissions right?" I checked the subscription and sure enough, the principal was there with the permissions it needed. Some more digging online revealed [this blog](https://compositecode.blog/2019/08/06/error-build-azure-arm-errored-adal-failed-to-execute-the-refresh-request-error/), which notes perfectly the issue:
 
 ```
 What this does is take the environment variables and passes them to what will be user variables for the builder block to make use of.
