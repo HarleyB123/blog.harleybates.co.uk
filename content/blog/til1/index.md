@@ -43,7 +43,7 @@ When I first looked at the repo, This was the JSON (Truncated):
   ]
 }
 ```
-Having rarely used Packer before, I saw that the error was probably relating to the ```user``` in the variables and that maybe it shouldn't/is not allowed to be there. I search around and see that we want to export an environment variable (AZURE_CLIENT_ID) and set it to client_id. This is what [env](https://www.packer.io/docs/templates/hcl_templates/functions/contextual/env) does! So I replaced ```user``` with ```env``` and got a new error:
+Having rarely used Packer before, I saw that the error was probably relating to the ```user``` in the variables and that maybe it shouldn't/is not allowed to be there. I search around and see that we want to export an environment variable (AZURE\_CLIENT\_ID) and set it to client\_id. This is what [env](https://www.packer.io/docs/templates/hcl_templates/functions/contextual/env) does! So I replaced ```user``` with ```env``` and got a new error:
 
 ```
 {"error":"unauthorized_client","error_description":"AADSTS700016: Application with identifier 'AZURE_CLIENT_ID' was not found in the directory '***'}
