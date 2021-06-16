@@ -10,8 +10,8 @@ Having a static IP that is known solves all of these problems 🙌
 
 ## Steps to deploy
 
-The Azure Documentation to running self-hosted agents is easy enough to get started with and provides a YAML Deployment template for running the agents inside of a cluster easily! Since the solution would be deployed in two different Azure DevOps locations (thus meaning different URL's and PAT tokens), as well as integrations that are mentioned later on in this blog, Helm felt like the right tool for the job - as I am able to create a GitHub workflow that can upgrade either (or both!) of
-the ADO environments independently from each other and pass through variables via the ```values.yaml``` file or using the ```--set``` flag in the Helm upgrade cli command. The main part of my deployment now looks like this:
+The Azure Documentation to running self-hosted agents is easy enough to get started with and provides a YAML Deployment template for running the agents inside of a cluster easily! Since the solution is being deployed in two different Azure DevOps locations (thus meaning different URL's and PAT tokens), as well as integrations that are mentioned later on in this blog, Helm felt like the right tool for the job - as I am able to create a GitHub workflow that can upgrade either (or both!) of
+the ADO environments independently from each other and pass through variables via the ```values.yaml``` file or using the ```--set``` flag in the Helm upgrade cli command. The main part of my deployment looks like this:
 
 ```yaml
 containers:
@@ -70,7 +70,7 @@ KEDA uses the number of agents that are currently running a job to scale. This m
 
 Overall, this was really easy to get setup, though I did have an issue where I was including the trailing slash on the end of the URL for the Azure DevOps Organisation, which took a while to debug and solve by looking at the code for KEDA. 
 
-I also don't like how you have to get the Azure DevOps Agent Pool ID (a numerical value rather than the name that you can retrieve using [this](https://docs.microsoft.com/en-us/cli/azure/pipelines/pool?view=azure-cli-latest#az_pipelines_pool_list) command, but thankfully it's static once you've retrieved the value. I also had issues in passing this value from ```values.yaml```, so I discovered Helm's [string conversion](https://helm.sh/docs/chart_best_practices/values/#make-types-clear) to
+I also don't like how you have to get the Azure DevOps Agent Pool ID (a numerical value rather than the name that you can retrieve using [this](https://docs.microsoft.com/en-us/cli/azure/pipelines/pool?view=azure-cli-latest#az_pipelines_pool_list) command), but thankfully it's static once you've retrieved the value. I also had issues in passing this value from ```values.yaml```, so I discovered Helm's [string conversion](https://helm.sh/docs/chart_best_practices/values/#make-types-clear) to
 resolve this.
 
 The ```keda.yaml``` file looks like this:
