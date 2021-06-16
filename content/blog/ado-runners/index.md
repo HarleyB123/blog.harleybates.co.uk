@@ -4,7 +4,7 @@ date: "2021-06-16T12:00:00.000Z"
 description: "Learn how I deployed Azure DevOps Self-Hosted Agents to Kubernetes and scaled based on queue size"
 ---
 
-Azure DevOps provides the option to deploy self-hosted agents using Docker [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/docker?view=azure-devops). This is really useful, as sometimes I come across the issue where I've had to allowlist an agents IP to a resource in Azure in the pipeline, only for the change to have not occcured in time for the next step and my pipeline to fail!
+Azure DevOps provides the option to deploy self-hosted agents using Docker [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/docker?view=azure-devops). This is really useful, as sometimes I come across the issue where I've had to allowlist an agents IP to a resource in Azure in the pipeline, only for the change to have not occured in time for the next step and my pipeline to fail!
 
 Having a static IP that is known solves all of these problems 🙌
 
@@ -34,7 +34,7 @@ containers:
 
 ## Managing secrets
 
-Despite the Azure DevOps agent requiring very few values to run, one of those is a PAT token (which I recommend is one from a service account user created in Azure DevOps!). There are many ways to pass through secrets to Kubernetes, including Azure's own recommmendation of creating a generic secret on the AKS cluster itself!
+Despite the Azure DevOps agent requiring very few values to run, one of those is a PAT token (which I recommend is one from a service account user created in Azure DevOps!). There are many ways to pass through secrets to Kubernetes, including Azure's own recommendation of creating a generic secret on the AKS cluster itself!
 
 Ideally, I wanted a solution where the secrets are either stored or referenced outside of the cluster, so that I am able to change the values easily when it is time to rotate the tokens. This lead me to two options, the [CSI driver](https://docs.microsoft.com/en-us/azure/key-vault/general/key-vault-integrate-kubernetes) or [akv2k8s](https://akv2k8s.io/). The former looked a bit confusing to get setup, so I opted for akv2k8s!
 
