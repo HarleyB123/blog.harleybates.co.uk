@@ -48,7 +48,7 @@ The ```secrets.yaml``` file looks like this:
 apiVersion: spv.no/v2beta1
 kind: AzureKeyVaultSecret
 metadata:
-  name: kls-secret-sync
+  name: secret-sync
   namespace: {{ .Values.NAMESPACE }}
 spec:
   vault:
