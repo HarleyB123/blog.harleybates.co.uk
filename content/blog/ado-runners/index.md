@@ -122,4 +122,4 @@ In short, I don't think it's possible to run Docker pipeline tasks when using se
 
 The solution mentioned above is not just for me or my team, but for multiple cloud teams. The issue around charging for this is that a cloud team should not be charged if they do not use the self-hosted agents.
 
-For this, I have decided to create a namespace in the cluster for each cloud team (an agent pool is also created for each team in the Azure DevOps Organisation) which scales the agents down to 0. From this, a tool called [Kubecost](https://www.kubecost.com/) is being considered so that I can not only 'rightsize' the cluster, but also see the cost for each namespace - thus identifying how much each team should be charged.
+For this, A colleague mentioned a method where you could create a namespace in the cluster for each cloud team (an agent pool is also created for each team in the Azure DevOps Organisation) which scales the agents down to 0. From this, a tool called [Kubecost](https://www.kubecost.com/) is being considered so that I can not only 'rightsize' the cluster, but also see the cost for each namespace - thus identifying how much each team should be charged.
