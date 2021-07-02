@@ -10,7 +10,7 @@ Within my workplace, Terraform is used frequently to deploy infrastructure in Az
 
 As part of a production change, a function app was update to add the correct VNET name in. The plan only showed this change and nothing else. The Terraform applied, and the function app started failing.
 
-In my team, Terraform does not manage any of the application settings. We use a custom tool that allows for the developers to manage application settings in JSON files within source code, so that changes to app configuration can be made seperately to the infrastructure.
+In my team, Terraform does not manage any of the application settings. We use a custom tool that allows for the developers to manage application settings in JSON files within source code, so that changes to app configuration can be made separately to the infrastructure.
 
 After a while debugging and reviewing the activty logs, the team discovered that ```WEBSITE_CONTENTAZUREFILECONNECTIONSTRING``` setting was removed entirely! Despite no indication of this happening in the plan!
 
