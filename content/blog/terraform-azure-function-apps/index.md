@@ -12,7 +12,7 @@ As part of a production change, a function app was update to add the correct VNE
 
 In my team, Terraform does not manage any of the application settings. We use a custom tool that allows for the developers to manage application settings in JSON files within source code, so that changes to app configuration can be made separately to the infrastructure.
 
-After a while debugging and reviewing the activty logs, the team discovered that ```WEBSITE_CONTENTAZUREFILECONNECTIONSTRING``` setting was removed entirely! Despite no indication of this happening in the plan!
+After a while debugging and reviewing the activity logs, the team discovered that ```WEBSITE_CONTENTAZUREFILECONNECTIONSTRING``` setting was removed entirely! Despite no indication of this happening in the plan!
 
 ## Debugging
 
