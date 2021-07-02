@@ -46,6 +46,6 @@ In general, there isn't one that doesn't restrict Terraform entirely, see [here]
 For my team, the solution will be to either:
 
 - Run the custom tooling for application settings after every deployment
-- Edit the custom tooling so it pulls down the existing values for WEBSITE_CONTENTAZUREFILECONNECTIONSTRING and WEBSITE_CONTENTSHARE and appending them to the configuration specified in the JSON files in source code!
+- Edit the custom tooling so it pulls down the existing values for ```WEBSITE_CONTENTAZUREFILECONNECTIONSTRING``` and ```WEBSITE_CONTENTSHARE``` and appending them to the configuration specified in the JSON files in source code!
 
 Overall this was quite an interesting upstream bug to encounter - and certainly one that should be flagged to the wider Terraform Azure community!
